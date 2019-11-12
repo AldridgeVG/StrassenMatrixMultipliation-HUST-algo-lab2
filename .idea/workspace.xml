@@ -1,7 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="48d5ec82-0eed-4b22-8747-c9f2da33ac06" name="Default Changelist" comment="" />
+    <list default="true" id="48d5ec82-0eed-4b22-8747-c9f2da33ac06" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/matrixChainMultipliation/Matrix.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/matrixChainMultipliation/Matrix.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/matrixChainMultipliation/MatrixMultipliationKt.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/matrixChainMultipliation/MatrixMultipliationKt.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/matrixMultipliation.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/matrixMultipliation.kt" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -15,8 +21,12 @@
       </list>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="ProjectId" id="1TVBBOsirU3AL4zPTGTfE76Zpu8" />
   <component name="PropertiesComponent">
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="settings.editor.selected.configurable" value="coverage" />
   </component>
   <component name="RunDashboard">
@@ -63,5 +73,16 @@
       <updated>1573535245655</updated>
     </task>
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>

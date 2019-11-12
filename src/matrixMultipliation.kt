@@ -236,8 +236,8 @@ fun main(args: Array<String>) {
     //Strassen's Matrix Multipliation------------------------------------------------------//
     //Step1 form factor 1-7
     val P1 = matrixMultipliation(A, matrixMinus(F, H))                  //p1 = a(f-h)
-    val P2 = matrixMultipliation(H, matrixAdd(A, B))                    //p2 = (a+b)h
-    val P3 = matrixMultipliation(E, matrixAdd(C, D))                    //p3 = (c+d)e
+    val P2 = matrixMultipliation(matrixAdd(A, B), H)                    //p2 = (a+b)h
+    val P3 = matrixMultipliation(matrixAdd(C, D), E)                    //p3 = (c+d)e
     val P4 = matrixMultipliation(D, matrixMinus(G, E))                  //p4 = d(g-e)
     val P5 = matrixMultipliation(matrixAdd(A, D), matrixAdd(E, H))      //p5 = (a+d)(e+h)
     val P6 = matrixMultipliation(matrixMinus(B, D), matrixAdd(G, H))    //p6 = (b-d)(g+h)
