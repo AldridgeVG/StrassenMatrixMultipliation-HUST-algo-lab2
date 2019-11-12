@@ -216,12 +216,12 @@ fun main(args: Array<String>) {
     printMatrix(M)
     println("Matrix N:")
     printMatrix(N)
-
-    //naive
+/*
+    //naive answer for comparison
     val ans = matrixMultipliation(M, N)
     println("Matrix ANSWER:")
     printMatrix(ans)
-
+*/
     //construct Strassen factor --- checked
     val A = cutSubMatrix(M, 0, 0, m)
     val B = cutSubMatrix(M, 0, m, m)

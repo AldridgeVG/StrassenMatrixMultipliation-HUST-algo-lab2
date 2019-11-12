@@ -2,13 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="48d5ec82-0eed-4b22-8747-c9f2da33ac06" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/generateMatrix.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/matrixM.txt" beforeDir="false" afterPath="$PROJECT_DIR$/matrixM.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/matrixN.txt" beforeDir="false" afterPath="$PROJECT_DIR$/matrixN.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/matrixChainMultipliation/META-INF/matrixChainMultipliation.kotlin_module" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/matrixChainMultipliation/META-INF/matrixChainMultipliation.kotlin_module" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/matrixChainMultipliation/Matrix.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/matrixChainMultipliation/Matrix.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/matrixChainMultipliation/MatrixMultipliationKt.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/matrixChainMultipliation/MatrixMultipliationKt.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/matrixChainMultipliation/GenerateMatrixKt.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/matrixChainMultipliation/GenerateMatrixKt.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/matrixMultipliation.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/matrixMultipliation.kt" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
