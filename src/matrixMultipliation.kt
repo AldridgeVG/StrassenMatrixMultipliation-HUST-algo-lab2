@@ -183,17 +183,17 @@ fun printMatrix(M: Matrix) {
         println("invalid matrix input!")
         return
     }
-    println("matrix size: n = $n")
+    println("matrix size: n = $n\n")
     var i = 0
     var j = 0
     while (i < n) {
         j = 0
         while (j < n) {
-            print("${M.elem[i][j]}\t\t")
+            print("${M.elem[i][j]} \t\t")
             j++
         }
         i++
-        println("\n")
+        println("\n\n")
     }
     println()
 }
@@ -201,8 +201,8 @@ fun printMatrix(M: Matrix) {
 //-----------------------------------------------------------------------------//
 fun main(args: Array<String>) {
     //file read
-    var M = readMatrix("matrixM.txt")
-    var N = readMatrix("matrixN.txt")
+    val M = readMatrix("matrixM.txt")
+    val N = readMatrix("matrixN.txt")
     var n = 0
     if (M.getSize() == N.getSize()) {
         n = M.getSize()
