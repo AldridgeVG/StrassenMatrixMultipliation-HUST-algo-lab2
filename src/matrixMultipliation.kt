@@ -1,11 +1,14 @@
 import java.io.File
+import javax.swing.text.html.HTML.Attribute.N
+
+
 
 //DATA STRUCTURE OF MATRIX---2D ARRAY AND getSize() FUNCTION
 class Matrix(val n: Int) {
 
     //if n=0, initialization failure
     init {
-        require(n > 0, { println("invalid matrix initialization") })
+        require(n > 0) { println("invalid matrix initialization") }
     }
 
     //initialize n*n Integer array elem
@@ -118,7 +121,7 @@ fun matrixAdd(A: Matrix, B: Matrix): Matrix {
         println("Matrix size doesn't fit")
     }
     val n = A.getSize()
-    var C = Matrix(n)
+    val C = Matrix(n)
     var i = 0
     var j = 0
     while (i < n) {
@@ -201,8 +204,12 @@ fun printMatrix(M: Matrix) {
 //-----------------------------------------------------------------------------//
 fun main(args: Array<String>) {
     //file read
-    val M = readMatrix("matrixM.txt")
-    val N = readMatrix("matrixN.txt")
+    println("input filename of matrix M:")
+    val filename1 = readLine()!!
+    println("input filename of matrix N:")
+    val filename2 = readLine()!!
+    val M = readMatrix(filename1)
+    val N = readMatrix(filename2)
     var n = 0
     if (M.getSize() == N.getSize()) {
         n = M.getSize()
@@ -216,12 +223,15 @@ fun main(args: Array<String>) {
     printMatrix(M)
     println("Matrix N:")
     printMatrix(N)
-/*
-    //naive answer for comparison
+
+    //naive D&V multi answer for comparison----------------------------//
+    val startTime = System.nanoTime()
     val ans = matrixMultipliation(M, N)
-    println("Matrix ANSWER:")
+    val endTime = System.nanoTime()
+    println("naive ANSWER:")
     printMatrix(ans)
-*/
+    //-----------------------------------------------------------------//
+
     //construct Strassen factor --- checked
     val A = cutSubMatrix(M, 0, 0, m)
     val B = cutSubMatrix(M, 0, m, m)
@@ -233,8 +243,22 @@ fun main(args: Array<String>) {
     val G = cutSubMatrix(N, m, 0, m)
     val H = cutSubMatrix(N, m, m, m)
 
+    //naive D&V multi answer----------------------------------------------------------------------------//
+    val startTime1 = System.nanoTime()
+    val NorthWest1 = matrixAdd(matrixMultipliation(A,E),matrixMultipliation(B,G))   //NorthWest = ae+bg
+    val NorthEast1 = matrixAdd(matrixMultipliation(A,F),matrixMultipliation(B,F))   //NorthEast = af+bh
+    val SouthWest1 = matrixAdd(matrixMultipliation(C,E),matrixMultipliation(D,G))   //SouthWest = ce+dg
+    val SouthEast1 = matrixAdd(matrixMultipliation(C,F),matrixMultipliation(D,H))   //SouthEast = cf+dh
+    val endTime1 = System.nanoTime()
+    val result1 = formMatrix(NorthWest1, NorthEast1, SouthWest1, SouthEast1)
+    println("naive D&V MM ANSWER:")
+    printMatrix(result1)
+    //--------------------------------------------------------------------------------------------------//
+
+
     //Strassen's Matrix Multipliation------------------------------------------------------//
     //Step1 form factor 1-7
+    val startTime2 = System.nanoTime()
     val P1 = matrixMultipliation(A, matrixMinus(F, H))                  //p1 = a(f-h)
     val P2 = matrixMultipliation(matrixAdd(A, B), H)                    //p2 = (a+b)h
     val P3 = matrixMultipliation(matrixAdd(C, D), E)                    //p3 = (c+d)e
@@ -248,6 +272,7 @@ fun main(args: Array<String>) {
     val NorthEast = matrixAdd(P1, P2)                                   //NE = P1+P2
     val SouthWest = matrixAdd(P3, P4)                                   //SW = P3+P4
     val SouthEast = matrixAdd(matrixMinus(P1, P3), matrixMinus(P5, P7))   //SE = P1+P5-P3-P7
+    val endTime2 = System.nanoTime()
 
     //Step3 form result matrix
     val result = formMatrix(NorthWest, NorthEast, SouthWest, SouthEast)
@@ -256,4 +281,11 @@ fun main(args: Array<String>) {
     println("Matrix RESULT:")
     printMatrix(result)
 
+    println("for matrix size n = $n:\n")
+    println("naive method time:        " + (endTime - startTime) + "ns")
+    println("naive D&V MM method time: " + (endTime1 - startTime1) + "ns")
+    println("SMM method time:          " + (endTime2 - startTime2) + "ns")
+    println("SMM algo is ${(endTime - startTime)- (endTime2 - startTime2)}ns(${((endTime - startTime)- (endTime2 - startTime2))/100000000.00}s) faster than naive MM algo")
+    println("SMM algo is ${(endTime1 - startTime1)- (endTime2 - startTime2)}ns(${((endTime1 - startTime1)- (endTime2 - startTime2))/1000000000.0}s) faster than normal D&V MM algo")
+//    println("SMM algo is %${((endTime - startTime)- (endTime1 - startTime1))/(endTime - startTime)*100} faster than normal D&V MM algo")
 }

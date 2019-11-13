@@ -1,20 +1,19 @@
 import java.io.File
 
 fun main() {
-    val filename1 = "matrixM.txt"
-    val filename2 = "matrixN.txt"
+
     println("welcome to matrix file generator")
     var n = 1
     while (n % 2 != 0) {
         println("please input an even number n to assign matrix size:")
         n = readLine()!!.toInt()
     }
+    val filename1 = "matrixM-$n.txt"
+    val filename2 = "matrixN-$n.txt"
     val N = n * n
-    val a = Array(N) { (1..N).random().toString() }
-    val b = Array(N) { (1..N).random().toString() }
-    a.forEach { a ->
-        println(a)
-    }
+    val a = Array(N) { (1..n).random().toString() } //narrow elem range from N to n
+    val b = Array(N) { (1..n).random().toString() }
+//    a.forEach(::println)
 
     val file1 = File(filename1)
     val file2 = File(filename2)
@@ -30,4 +29,5 @@ fun main() {
         }
         i++
     }
+    return
 }
