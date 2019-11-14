@@ -1,8 +1,6 @@
 import java.io.File
 import javax.swing.text.html.HTML.Attribute.N
 
-
-
 //DATA STRUCTURE OF MATRIX---2D ARRAY AND getSize() FUNCTION
 class Matrix(val n: Int) {
 
@@ -92,12 +90,12 @@ fun formMatrix(NW: Matrix, NE: Matrix, SW: Matrix, SE: Matrix): Matrix {
 //----------------------------------------------------------------------------//
 
 //CALCULATION BETWEEN MATRIX--------------------------------------------------//
-fun matrixMultipliation(A: Matrix, B: Matrix): Matrix {
+fun matrixMultiplication(A: Matrix, B: Matrix): Matrix {
     if (A.getSize() != B.getSize()) {
         println("Matrix size doesn't fit")
     }
     val n = A.getSize()
-    var C = Matrix(n)
+    val C = Matrix(n)
     var i = 0
     var j = 0
     var k = 0
@@ -218,15 +216,15 @@ fun main(args: Array<String>) {
         return
     }
     val m = n / 2
-    println("Matrix for multipliation:")
+    println("Matrix for Multiplication:")
     println("Matrix M:")
     printMatrix(M)
     println("Matrix N:")
     printMatrix(N)
 
-    //naive D&V multi answer for comparison----------------------------//
+    //naive matrix multi answer for comparison----------------------------//
     val startTime = System.nanoTime()
-    val ans = matrixMultipliation(M, N)
+    val ans = matrixMultiplication(M, N)
     val endTime = System.nanoTime()
     println("naive ANSWER:")
     printMatrix(ans)
@@ -245,10 +243,10 @@ fun main(args: Array<String>) {
 
     //naive D&V multi answer----------------------------------------------------------------------------//
     val startTime1 = System.nanoTime()
-    val NorthWest1 = matrixAdd(matrixMultipliation(A,E),matrixMultipliation(B,G))   //NorthWest = ae+bg
-    val NorthEast1 = matrixAdd(matrixMultipliation(A,F),matrixMultipliation(B,F))   //NorthEast = af+bh
-    val SouthWest1 = matrixAdd(matrixMultipliation(C,E),matrixMultipliation(D,G))   //SouthWest = ce+dg
-    val SouthEast1 = matrixAdd(matrixMultipliation(C,F),matrixMultipliation(D,H))   //SouthEast = cf+dh
+    val NorthWest1 = matrixAdd(matrixMultiplication(A, E), matrixMultiplication(B, G))   //NorthWest = ae+bg
+    val NorthEast1 = matrixAdd(matrixMultiplication(A, F), matrixMultiplication(B, F))   //NorthEast = af+bh
+    val SouthWest1 = matrixAdd(matrixMultiplication(C, E), matrixMultiplication(D, G))   //SouthWest = ce+dg
+    val SouthEast1 = matrixAdd(matrixMultiplication(C, F), matrixMultiplication(D, H))   //SouthEast = cf+dh
     val endTime1 = System.nanoTime()
     val result1 = formMatrix(NorthWest1, NorthEast1, SouthWest1, SouthEast1)
     println("naive D&V MM ANSWER:")
@@ -256,22 +254,22 @@ fun main(args: Array<String>) {
     //--------------------------------------------------------------------------------------------------//
 
 
-    //Strassen's Matrix Multipliation------------------------------------------------------//
+    //Strassen's Matrix Multiplication------------------------------------------------------//
     //Step1 form factor 1-7
     val startTime2 = System.nanoTime()
-    val P1 = matrixMultipliation(A, matrixMinus(F, H))                  //p1 = a(f-h)
-    val P2 = matrixMultipliation(matrixAdd(A, B), H)                    //p2 = (a+b)h
-    val P3 = matrixMultipliation(matrixAdd(C, D), E)                    //p3 = (c+d)e
-    val P4 = matrixMultipliation(D, matrixMinus(G, E))                  //p4 = d(g-e)
-    val P5 = matrixMultipliation(matrixAdd(A, D), matrixAdd(E, H))      //p5 = (a+d)(e+h)
-    val P6 = matrixMultipliation(matrixMinus(B, D), matrixAdd(G, H))    //p6 = (b-d)(g+h)
-    val P7 = matrixMultipliation(matrixMinus(A, C), matrixAdd(E, F))    //p7 = (a-c)(e+f)
+    val P1 = matrixMultiplication(A, matrixMinus(F, H))                  //p1 = a(f-h)
+    val P2 = matrixMultiplication(matrixAdd(A, B), H)                    //p2 = (a+b)h
+    val P3 = matrixMultiplication(matrixAdd(C, D), E)                    //p3 = (c+d)e
+    val P4 = matrixMultiplication(D, matrixMinus(G, E))                  //p4 = d(g-e)
+    val P5 = matrixMultiplication(matrixAdd(A, D), matrixAdd(E, H))      //p5 = (a+d)(e+h)
+    val P6 = matrixMultiplication(matrixMinus(B, D), matrixAdd(G, H))    //p6 = (b-d)(g+h)
+    val P7 = matrixMultiplication(matrixMinus(A, C), matrixAdd(E, F))    //p7 = (a-c)(e+f)
 
     //Step2 form 4 sub matrix
-    val NorthWest = matrixAdd(matrixAdd(P5, P6), matrixMinus(P4, P2))   //NW = P5+P4-P2+P6
-    val NorthEast = matrixAdd(P1, P2)                                   //NE = P1+P2
-    val SouthWest = matrixAdd(P3, P4)                                   //SW = P3+P4
-    val SouthEast = matrixAdd(matrixMinus(P1, P3), matrixMinus(P5, P7))   //SE = P1+P5-P3-P7
+    val NorthWest = matrixAdd(matrixAdd(P5, P6), matrixMinus(P4, P2))       //NW = P5+P4-P2+P6
+    val NorthEast = matrixAdd(P1, P2)                                       //NE = P1+P2
+    val SouthWest = matrixAdd(P3, P4)                                       //SW = P3+P4
+    val SouthEast = matrixAdd(matrixMinus(P1, P3), matrixMinus(P5, P7))     //SE = P1+P5-P3-P7
     val endTime2 = System.nanoTime()
 
     //Step3 form result matrix
@@ -285,7 +283,7 @@ fun main(args: Array<String>) {
     println("naive method time:        " + (endTime - startTime) + "ns")
     println("naive D&V MM method time: " + (endTime1 - startTime1) + "ns")
     println("SMM method time:          " + (endTime2 - startTime2) + "ns")
-    println("SMM algo is ${(endTime - startTime)- (endTime2 - startTime2)}ns(${((endTime - startTime)- (endTime2 - startTime2))/100000000.00}s) faster than naive MM algo")
-    println("SMM algo is ${(endTime1 - startTime1)- (endTime2 - startTime2)}ns(${((endTime1 - startTime1)- (endTime2 - startTime2))/1000000000.0}s) faster than normal D&V MM algo")
+    println("SMM algo is ${(endTime - startTime) - (endTime2 - startTime2)}ns(${((endTime - startTime) - (endTime2 - startTime2)) / 100000000.00}s) faster than naive MM algo")
+    println("SMM algo is ${(endTime1 - startTime1) - (endTime2 - startTime2)}ns(${((endTime1 - startTime1) - (endTime2 - startTime2)) / 1000000000.0}s) faster than normal D&V MM algo")
 //    println("SMM algo is %${((endTime - startTime)- (endTime1 - startTime1))/(endTime - startTime)*100} faster than normal D&V MM algo")
 }
