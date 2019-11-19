@@ -2,9 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="48d5ec82-0eed-4b22-8747-c9f2da33ac06" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/matrixChainMultipliation/Matrix.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/matrixChainMultipliation/Matrix.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/matrixChainMultipliation/MatrixMultipliationKt.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/matrixChainMultipliation/MatrixMultipliationKt.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/matrixChainMultipliation.docx" beforeDir="false" afterPath="$PROJECT_DIR$/matrixChainMultipliation.docx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/matrixChainMultipliation.iml" beforeDir="false" afterPath="$PROJECT_DIR$/matrixChainMultiplication.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/matrixMultipliation.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/matrixMultipliation.kt" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -26,6 +27,7 @@
   <component name="ProjectId" id="1TVBBOsirU3AL4zPTGTfE76Zpu8" />
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="coverage" />
   </component>
   <component name="RunDashboard">
@@ -40,9 +42,9 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Kotlin.MatrixMultipliationKt">
+  <component name="RunManager" selected="Kotlin.GenerateMatrixKt">
     <configuration name="GenerateMatrixKt" type="JetRunConfigurationType" factoryName="Kotlin" temporary="true" nameIsGenerated="true">
-      <module name="matrixChainMultipliation" />
+      <module name="matrixChainMultiplication" />
       <option name="VM_PARAMETERS" />
       <option name="PROGRAM_PARAMETERS" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
@@ -55,7 +57,7 @@
       </method>
     </configuration>
     <configuration name="MatrixMultipliationKt" type="JetRunConfigurationType" factoryName="Kotlin" temporary="true" nameIsGenerated="true">
-      <module name="matrixChainMultipliation" />
+      <module name="matrixChainMultiplication" />
       <option name="VM_PARAMETERS" />
       <option name="PROGRAM_PARAMETERS" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
@@ -69,8 +71,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Kotlin.MatrixMultipliationKt" />
         <item itemvalue="Kotlin.GenerateMatrixKt" />
+        <item itemvalue="Kotlin.MatrixMultipliationKt" />
       </list>
     </recent_temporary>
   </component>

@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/matrixChainMultipliation.iml" filepath="$PROJECT_DIR$/matrixChainMultipliation.iml" />
+      <module fileurl="file://$PROJECT_DIR$/matrixChainMultiplication.iml" filepath="$PROJECT_DIR$/matrixChainMultiplication.iml" />
     </modules>
   </component>
 </project>
