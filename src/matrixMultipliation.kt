@@ -291,9 +291,9 @@ fun printMatrix1(M: Matrix1) {
     println()
 }
 
-fun readMatrices(n: Int): Array<Matrix1> {
+fun readMatrices(n: Int): Array<Matrix1?> {
     var i = 0
-    var m = Array(n) { Matrix1(0, 0) }
+    var m = arrayOfNulls<Matrix1>(n)
     var filename: String
     while (i < n) {
         println("Input filename of Matrix $i:")
@@ -308,7 +308,7 @@ fun readMatrices(n: Int): Array<Matrix1> {
 fun main(args: Array<String>) {
     var op = 3
     //select op, input controll
-    while (op != 1 || op != 2 || op != 0) {
+    while (op != 1 && op != 2 && op != 0) {
         println("select op (0 to quit):")
         println("1: Strassen's Matrix Multiplication test")
         println("2: Matrices Chain Multiplication test")
@@ -410,33 +410,96 @@ fun main(args: Array<String>) {
         //this chain's matrices' m,n must satisfy: m,n n,o o,p p,q... forms m,q
         //check multiplication validity
         var i = 0
+        var j = 0
+        var k = 0
         while (i < N - 1) {
-            if (matrixChain[i].getRollSize() != matrixChain[i + 1].getLineSize()) {
+            if (matrixChain[i]!!.getRollSize() != matrixChain[i + 1]!!.getLineSize()) {
                 println("matrices read cannot be multiplied!")
                 return
             } else i++
         }
 
-        val n = matrixChain[0].getLineSize()
-        val m = matrixChain[N - 1].getRollSize()
-        var result = Matrix1(n, m)
+        val n = matrixChain[0]!!.getLineSize()
+        val m = matrixChain[N - 1]!!.getRollSize()
+        val T = IntArray(N + 1) { 0 }
+
+        //set an array contains m,n,o,p,q,,-> m*n x n*o x o*p ...
+        T[0] = matrixChain[0]!!.getLineSize()
+        i = 1
+        while (i < N + 1) {
+            T[i] = matrixChain[i - 1]!!.getRollSize()
+            i++
+        }
+
+/*
+        test data
+        val T: IntArray = intArrayOf(30, 35, 15, 5, 10, 20, 25)
+        val N = 6
+        var i = 0
+        var j = 0
+        var k = 0
+*/
+        //set 2 result matrix
+        var resultOPT = Matrix1(n, m)
+        var resultORD = Matrix1(n, m)
 
         //there're N-1 multiplication in total, have to decide order
-        var price = Array(N) { IntArray(N) { Int.MAX_VALUE } }
-        var interval = 1
-        while (interval < N) {
-            i = 0
-            while (i < N - interval) {
-                if (interval == 1) {
-                    price[i][i + interval] =
-                        matrixChain[i].getLineSize() * matrixChain[i].getRollSize() * matrixChain[i + interval].getRollSize()
-                } else{
-                    //adding function to get the minnium times of mul of matrix chain multiplication
-                }
+        //price matrix and pivot matrix
+        var price = Array(N) { IntArray(N) { 0 } }
+        var pivot = Array(N - 1) { IntArray(N) { 0 } }
+        var chain = 2
 
-                    i++
+        //1. if chain = 1, price = 0
+        i = 0
+        while (i < N) {
+            price[i][i] = 0
+            i++
+        }
+
+        //2. chain from 2 to N(all)
+        while (chain <= N) {
+            i = 0
+            while (i < N - chain + 1) {
+                j = i + chain - 1
+                price[i][j] = Int.MAX_VALUE
+                k = i
+                while (k < j) {
+                    var tmpp = price[i][k] + price[k + 1][j] + T[i] * T[k + 1] * T[j + 1]
+                    if (tmpp < price[i][j]) {
+                        price[i][j] = tmpp
+                        pivot[i][j] = k
+                    }
+                    k++
+                }
+                i++
             }
-            interval++
+            chain++
+        }
+        println("minnium number of multiplication in this chain: ${price[0][N - 1]}")
+        println("price matrix as follow:")
+        i = 0
+        while (i < N) {
+            j = 0
+            while (j < N) {
+                if(price[i][j] == 0)
+                    print("0000\t\t")       //format output matrix
+                else
+                    print("${price[i][j]} \t\t")
+                j++
+            }
+            println("\n")
+            i++
+        }
+        println("pivot matrix as follow:")
+        i = 0
+        while (i < N - 1) {
+            j = 0
+            while (j < N) {
+                print("${pivot[i][j]} \t\t")
+                j++
+            }
+            println("\n")
+            i++
         }
     }
     if (op == 0) {

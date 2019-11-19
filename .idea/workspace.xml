@@ -2,10 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="48d5ec82-0eed-4b22-8747-c9f2da33ac06" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/generateMatrixChain.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/matrixChainMultipliation.docx" beforeDir="false" afterPath="$PROJECT_DIR$/matrixChainMultipliation.docx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/matrixChainMultipliation.iml" beforeDir="false" afterPath="$PROJECT_DIR$/matrixChainMultiplication.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/matrixChainMultipliation.docx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/matrixChainMultipliation/GenerateMatrixKt.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/matrixChainMultipliation/META-INF/matrixChainMultipliation.kotlin_module" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/matrixChainMultipliation/Matrix.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/matrixChainMultipliation/MatrixMultipliationKt.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/matrixMultipliation.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/matrixMultipliation.kt" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -42,7 +45,20 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Kotlin.GenerateMatrixKt">
+  <component name="RunManager" selected="Kotlin.MatrixMultipliationKt">
+    <configuration name="GenerateMatrixChainKt" type="JetRunConfigurationType" factoryName="Kotlin" temporary="true" nameIsGenerated="true">
+      <module name="matrixChainMultiplication" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="MAIN_CLASS_NAME" value="GenerateMatrixChainKt" />
+      <option name="WORKING_DIRECTORY" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="GenerateMatrixKt" type="JetRunConfigurationType" factoryName="Kotlin" temporary="true" nameIsGenerated="true">
       <module name="matrixChainMultiplication" />
       <option name="VM_PARAMETERS" />
@@ -71,8 +87,9 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Kotlin.GenerateMatrixKt" />
         <item itemvalue="Kotlin.MatrixMultipliationKt" />
+        <item itemvalue="Kotlin.GenerateMatrixChainKt" />
+        <item itemvalue="Kotlin.GenerateMatrixKt" />
       </list>
     </recent_temporary>
   </component>
@@ -101,5 +118,51 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/src/matrixMultipliation.kt</url>
+          <line>294</line>
+          <option name="timeStamp" value="18" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/src/matrixMultipliation.kt</url>
+          <line>295</line>
+          <option name="timeStamp" value="19" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/src/matrixMultipliation.kt</url>
+          <line>296</line>
+          <option name="timeStamp" value="20" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/src/matrixMultipliation.kt</url>
+          <line>298</line>
+          <option name="timeStamp" value="22" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/src/matrixMultipliation.kt</url>
+          <line>300</line>
+          <option name="timeStamp" value="24" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/src/matrixMultipliation.kt</url>
+          <line>299</line>
+          <option name="timeStamp" value="25" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/src/matrixMultipliation.kt</url>
+          <line>303</line>
+          <option name="timeStamp" value="26" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/src/matrixMultipliation.kt</url>
+          <line>301</line>
+          <option name="timeStamp" value="27" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
